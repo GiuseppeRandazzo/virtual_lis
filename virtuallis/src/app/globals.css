@@ -1,18 +1,15 @@
-@import "tailwindcss";
-@config "../../tailwind.config.ts";
+@import "tailwindcss" prefix(lis);
 
-:root {
-  /* Palette Colori Virtuallis */
-  --lis-color-night: #042c53;
-  --lis-color-primary: #185fa5;
-  --lis-color-accent: #378add;
-  --lis-color-soft: #85b7eb;
-  --lis-color-white: #e6f1fb;
-  --lis-color-neutral: #f1efe8;
+@theme {
+  --color-night: #042c53;
+  --color-primary: #185fa5;
+  --color-accent: #378add;
+  --color-soft: #85b7eb;
+  --color-white: #e6f1fb;
+  --color-neutral: #f1efe8;
 }
 
 body {
-  /* Sfondo neutro di base per test e reset dei colori */
-  background-color: var(--lis-color-neutral);
-  color: var(--lis-color-night);
+  background-color: var(--color-neutral);
+  color: var(--color-night);
 }

@@ -20,15 +20,15 @@ export const Fab: React.FC<FabProps> = ({ onClick, isOpen }) => {
         isOpen ? "Chiudi interprete 3D Lis" : "Apri interprete 3D Lis"
       }
       aria-expanded={isOpen}
-      className={`lis-fixed lis-bottom-6 lis-right-6 lis-z-50
-        lis-flex lis-h-16 lis-w-16 lis-items-center lis-justify-center
-        lis-rounded-full lis-bg-primary lis-text-white lis-shadow-lg
-        lis-transition-transform lis-duration-300 lis-ease-in-out
-        hover:lis-scale-105 hover:lis-bg-accent
-        focus:lis-outline-none focus:lis-ring-4 focus:lis-ring-accent focus:lis-ring-offset-2 focus:lis-ring-offset-neutral`}>
+      className={`lis:fixed lis:bottom-6 lis:right-6 lis:z-50
+        lis:flex lis:h-16 lis:w-16 lis:items-center lis:justify-center
+        lis:rounded-full lis:bg-primary lis:text-white lis:shadow-lg
+        lis:transition-transform lis:duration-300 lis:ease-in-out
+        hover:lis:scale-105 hover:lis:bg-accent
+        focus:lis:outline-none focus:lis:ring-4 focus:lis:ring-accent focus:lis:ring-offset-2 focus:lis:ring-offset-neutral`}>
       {/* Per adesso mettiamo un'icona testuale/placehholder (delle "mani").
             verrà successivamente sostituita con la SVG dell'icona reale di virtuallis inline */}
-      <span className="lis-text-2x1" aria-hidden="true">
+      <span className="lis:text-2xl" aria-hidden="true">
         {isOpen ? "✕" : "✌️"}
       </span>
     </button>

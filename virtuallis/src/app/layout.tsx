@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="it">
       {/* Applichiamo il font al body e rendiamo l'antialiasing attivo per schermi moderni */}
-      <body className={`${inter.className} lis-antialiased`}>{children}</body>
+      <body className={`${inter.className} lis:antialiased`}>{children}</body>
     </html>
   );
 }

@@ -12,20 +12,20 @@ export default function Home() {
   };
 
   return (
-    <main className="lis-min-h-screen lis-p-8 md:lis-p-24">
+    <main className="lis:min-h-screen lis:p-8 md:lis:p-24">
       {/* Contenuto fittizio per simulare una pagina della Pubblica Amministrazione */}
-      <div className="lis-max-w-3xl lis-mx-auto">
-        <h1 className="lis-text-4xl lis-font-medium lis-mb-6 lis-text-night">
+      <div className="lis:max-w-3xl lis:mx-auto">
+        <h1 className="lis:text-4xl lis:font-medium lis:mb-6 lis:text-night">
           Comune di Esempio
         </h1>
-        <p className="lis-text-lg lis-mb-4">
+        <p className="lis:text-lg lis:mb-4">
           Benvenuto nel portale del cittadino. Attiva Virtuallis per avere la
           traduzione in Lingua dei Segni Italiana (LIS).
         </p>
 
         {/* Placeholder per evidenziare dove apparirà il pannello */}
         {isWidgetOpen && (
-          <div className="lis-mt-8 lis-p-6 lis-bg-white lis-rounded-xl lis-shadow-md lis-border-2 lis-border-primary lis-text-center">
+          <div className="lis:mt-8 lis:p-6 lis:bg-white lis:rounded-xl lis:shadow-md lis:border-2 lis:border-primary lis:text-center">
             [Pannello Interprete LIS: Avatar 3D e status]
           </div>
         )}
