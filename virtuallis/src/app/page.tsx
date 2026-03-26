@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Fab } from "@/components/ui/Fab";
+import { WidgetPanel } from "@/components/ui/WidgetPanel";
 
 export default function Home() {
   //Stato che controlla se il widget è aperto o chiuso
@@ -22,17 +23,13 @@ export default function Home() {
           Benvenuto nel portale del cittadino. Attiva Virtuallis per avere la
           traduzione in Lingua dei Segni Italiana (LIS).
         </p>
-
-        {/* Placeholder per evidenziare dove apparirà il pannello */}
-        {isWidgetOpen && (
-          <div className="lis:mt-8 lis:p-6 lis:bg-white lis:rounded-xl lis:shadow-md lis:border-2 lis:border-primary lis:text-center">
-            [Pannello Interprete LIS: Avatar 3D e status]
-          </div>
-        )}
       </div>
 
       {/* Il nostro FAB posizionato in modo fisso */}
       <Fab isOpen={isWidgetOpen} onClick={toggleWidget} />
+
+      {/* Il vero Pannello Interprete LIS */}
+      <WidgetPanel isOpen={isWidgetOpen} onClose={toggleWidget} />
     </main>
   );
 }
