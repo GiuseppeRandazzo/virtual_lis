@@ -32,13 +32,13 @@ a siti della Pubblica Amministrazione italiana.
 
 ## Architettura
 
-| Livello  | Tecnologia                         | Scopo                     |
-| -------- | ---------------------------------- | ------------------------- |
-| Sviluppo | Next.js 14 App Router + TypeScript | Ambiente dev e test       |
-| Stile    | Tailwind CSS (prefix `lis-`)       | Zero conflitti con CSS PA |
-| 3D       | Three.js + Ready Player Me         | Avatar e animazioni       |
-| Output   | Web Component (W3C) + Lit          | Distribuzione universale  |
-| Futuro   | Chrome Extension Manifest V3       | Estensione browser        |
+| Livello  | Tecnologia                      | Scopo                     |
+| -------- | ------------------------------- | ------------------------- |
+| Sviluppo | Next.js App Router + TypeScript | Ambiente dev e test       |
+| Stile    | Tailwind CSS v4 (prefix `lis:`) | Zero conflitti con CSS PA |
+| 3D       | R3F + Three.js + Custom `.glb`  | Avatar e animazioni       |
+| Output   | Web Component (W3C) + Lit       | Distribuzione universale  |
+| Futuro   | Chrome Extension Manifest V3    | Estensione browser        |
 
 Il widget è un'unità autonoma: nessuna dipendenza imposta al sito ospitante.
 Ogni classe CSS deve avere il prefisso `lis-` (es. `lis-fab`, `lis-panel`).
@@ -97,5 +97,14 @@ Ogni classe CSS deve avere il prefisso `lis-` (es. `lis-fab`, `lis-panel`).
 - Se esistono più approcci, presentali brevemente e lascia scegliere
 - Ricorda periodicamente i controlli di accessibilità da eseguire:
   test screen reader, contrasto colori, focus trap, keyboard navigation
-- Ogni classe CSS deve usare il prefisso `lis-`
-- Ogni CSS custom property deve usare il prefisso `--lis-`
+- Ogni classe CSS utility fornita da Tailwind DEVE usare il prefisso `lis:` (es. `lis:bg-primary`).
+- Ogni classe CSS personalizzata DEVE usare il prefisso `lis-` (es. `lis-panel`).
+- Ogni CSS custom property deve usare il prefisso `--lis-`.
+
+---
+
+## Stato Attuale
+
+- **Integrazione 3D base completata:** Ambiente React Three Fiber configurato in `AvatarCanvas.tsx`.
+- **UI:** Interfaccia base (FAB e WidgetPanel) conforme WCAG e con transizioni slide-up. Tailwind v4 operativo e isolato tramito CSS root variables.
+- **Prossimo Step Pianificato:** Creare l'avatar in Blender, esportarlo come `.glb` e definire le keyframe di animazione LIS, per poi importarle in `AvatarCanvas.tsx` e instanziarle tramite `useAnimations`.
