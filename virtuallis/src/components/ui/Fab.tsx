@@ -6,31 +6,67 @@ Il suo design è pensato per essere facilmente riconoscibile e accessibile, con 
 
 import React from "react";
 
+// Questo file gestisce il Floating Action Button
+// Aggiornato per essere fully-compliant WCAG 2.1 AA
+
 interface FabProps {
-  onClick: () => void;
   isOpen: boolean;
+  onClick: () => void;
 }
 
-export const Fab: React.FC<FabProps> = ({ onClick, isOpen }) => {
+export function Fab({ isOpen, onClick }: FabProps) {
   return (
     <button
-      type="button"
-      onClick={onClick}
-      aria-label={
-        isOpen ? "Chiudi interprete 3D Lis" : "Apri interprete 3D Lis"
-      }
+      // aria-expanded comunica allo screen reader se il widget controllato è aperto o chiuso
       aria-expanded={isOpen}
-      className={`lis:fixed lis:bottom-6 lis:right-6 lis:z-50
-        lis:flex lis:h-16 lis:w-16 lis:items-center lis:justify-center
-        lis:rounded-full lis:bg-primary lis:text-white lis:shadow-lg
-        lis:transition-transform lis:duration-300 lis:ease-in-out
-        hover:lis:scale-105 hover:lis:bg-accent
-        focus:lis:outline-none focus:lis:ring-4 focus:lis:ring-accent focus:lis:ring-offset-2 focus:lis:ring-offset-neutral`}>
-      {/* Per adesso mettiamo un'icona testuale/placehholder (delle "mani").
-            verrà successivamente sostituita con la SVG dell'icona reale di virtuallis inline */}
-      <span className="lis:text-2xl" aria-hidden="true">
-        {isOpen ? "✕" : "✌️"}
-      </span>
+      // aria-label descrive vocalmente la funzione del pulsante
+      aria-label={isOpen ? "Chiudi interprete LIS" : "Apri interprete LIS"}
+      // aria-haspopup dice che il clic aprirà o controllerà un overlay
+      aria-haspopup="dialog"
+      onClick={onClick}
+      className={`
+        lis:fixed lis:bottom-6 lis:right-6 
+        lis:w-16 lis:h-16 lis:rounded-full 
+        lis:bg-[var(--lis-color-primary)] 
+        lis:text-[var(--lis-color-white)] 
+        lis:shadow-lg lis:flex lis:items-center lis:justify-center 
+        lis:hover:bg-[var(--lis-color-accent)] lis:transition-colors lis:z-50
+        /* Il Focus Ring è ESSENZIALE per l'accessibilità da tastiera: */
+        focus:lis:outline-none focus:lis:ring-4 focus:lis:ring-[var(--lis-color-night)] focus:lis:ring-offset-2
+        ${isOpen ? "lis:rotate-90" : "lis:rotate-0"}
+      `}>
+      {/* Se il widget è aperto mostriamo un'icona X, altrimenti l'icona icona del linguaggio dei segni (o simili) */}
+      {isOpen ? (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="28"
+          height="28"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      ) : (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="28"
+          height="28"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round">
+          <path d="M18 11V6a2 2 0 0 0-2-2h-3a2 2 0 0 0-2 2v5" />
+          <path d="M11 11V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7" />
+          <path d="M4 11v5a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-5" />
+          <path d="M12 11v9a2 2 0 0 0 2 2h5a2 2 0 0 0 2-2v-9" />
+        </svg>
+      )}
     </button>
   );
-};
+}
