@@ -1,0 +1,9 @@
+{
+  "servers": {
+    "blender": {
+      "type": "stdio",
+      "command": "python",
+      "args": ["C:\\Users\\giuse\\blender-mcp\\src\\blender_mcp\\server.py"]
+    }
+  }
+}
